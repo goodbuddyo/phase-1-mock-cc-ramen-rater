@@ -52,6 +52,20 @@ const init=() => {
     //.then(ramen => console.log(ramen))
   }
 
+  // DELETE an ramen - (the DELETE part of Crud)
+  function removeRamen(ramenObj) {
+    fetch(`http://localhost:3000/ramens/${ramenObj.id}`,{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+      //body: JSON.stringify(ramenObj)
+    })
+      .then(res => res.json())
+      .then(ramen => console.log(ramen))
+  }
+
+
   // renderOneMenuRamen DOM Manipulators
   function renderOneMenuRamen(ramen) {
     // Build Ramen
@@ -60,6 +74,10 @@ const init=() => {
     // innerHTML is coming from us so it should be safe, note backticks
     card.innerHTML=`
       <a class="r-image" id="${ramen.id}}"><img src="${ramen.image}"></a>
+      <p  class="clickImg" >Click Image For Details</p>
+      <div class="buttons">
+        <button class="removebtn">Remove From Menu</button>
+      </div>
       <!-- <div class="content">
       <h4>${ramen.name}</h4>
        <p class="r-rating">
@@ -75,6 +93,13 @@ const init=() => {
       `
     // add card to dom
     document.querySelector('div#ramen-menu').appendChild(card)
+
+    card.querySelector('button.removebtn').addEventListener('click',() => {
+      console.log(ramen)
+      card.innerHTML=''
+      removeRamen(ramen)
+    })
+
 
     // listener for click on Ramen menu img to update detail
     card.querySelector('a.r-image').addEventListener('click',() => {

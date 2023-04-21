@@ -100,3 +100,8 @@ form h4 {
   color: white;
   background-color: black;
 }
+
+
+.buttons,
+.clickImg {font-size:12px; margin: 4px 0;}
+
