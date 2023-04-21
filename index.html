@@ -20,7 +20,7 @@
 
   <!-- Ramen Details -->
   <div id="ramen-detail">
-    <img class="detail-image" src="./assets/image-placeholder.jpg" alt="Insert Name Here" />
+    <img class="detail-image" src="./assets/ramen/ramenIcon.jpg" alt="Insert Name Here" />
     <h2 class="name">Insert Name Here</h2>
     <h3 class="restaurant">Insert Restaurant Here</h3>
   </div>
@@ -45,9 +45,14 @@
     <input type="text" name="image" id="new-image" />
     <label for="rating">Rating: </label>
     <input type="number" name="rating" id="new-rating" />
-    <label for="new-comment">Comment: </label>
-    <textarea name="new-comment" id="new-comment"></textarea>
+    <label for="comment">Comment: </label>
+    <textarea name="comment" id="comment"></textarea>
     <input type="submit" value="Create" />
+    <!--   comment: e.target.new-comment.value
+      caught TypeError: Cannot read properties of undefined (reading 'value')
+      changed name="comment" id="comment"
+      <label for="new-comment">Comment: </label>
+      <textarea name="new-comment" id="new-comment"></textarea> -->
   </form>
 
 </body>
